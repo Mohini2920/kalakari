@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem('kalakari_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<title>Terracotta — Kalakari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="reading-progress"><span></span></div>
+<div class="announce"><b>Free shipping</b> on orders over ₹1,499 · Every piece is handmade, direct from the artisan</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a href="index.html" class="logo">
+      <span class="mark">Kalakari</span>
+      <small>tale of indian handicrafts</small>
+    </a>
+    <nav class="mainnav" id="mainnav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="terracotta.html" data-nav="terracotta" class="active">Terracotta</a>
+      <a href="toda.html" data-nav="toda">Toda</a>
+      <a href="dhokra.html" data-nav="dhokra">Dhokra</a>
+      <a href="namda.html" data-nav="namda">Namda</a>
+      <a href="sanjhi.html" data-nav="sanjhi">Sanjhi</a>
+      <a href="support.html" data-nav="support">Support</a>
+    </nav>
+    <div class="navside">
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap breadcrumb"><a href="index.html">Home</a> / Terracotta</div>
+  <section class="craft-hero" style="background:linear-gradient(180deg, color-mix(in srgb, var(--terracotta) 10%, var(--bg)), var(--bg));">
+    <div class="wrap grid">
+      <div>
+        <span class="badge" style="background:var(--terracotta);">Rajasthan · West Bengal · Gujarat · UP</span>
+        <h1>Terracotta Pottery</h1>
+        <p class="origin">Wheel-thrown, hand-finished, fired the traditional way — no glaze, no shortcuts.</p>
+        <a href="#products-tc" class="btn btn-solid">Support This Craft ↓</a>
+        <div class="stats">
+          <div><span class="n" style="color:var(--terracotta);">3</span><span class="l">products listed</span></div>
+          <div><span class="n" style="color:var(--terracotta);">₹649+</span><span class="l">starting price</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="craft-visual" style="background:color-mix(in srgb, var(--terracotta) 12%, var(--bg-alt)); padding:0; overflow:hidden;">
+          <video src="videos/terracotta-molela-artisan.mp4" poster="images/terracotta-molela-poster.jpg" controls playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;" aria-label="A Molela terracotta artisan at work"></video>
+        </div>
+        <p class="video-caption">What to notice: a Molela artisan hand-shaping wet clay — the same open-fired, unglazed process described in "How it's made" below. (No spoken narration to caption.)</p>
+      </div>
+    </div>
+  </section>
+
+  
+<div class="detail-tabs" style="--_accent: var(--terracotta);">
+  <div class="wrap">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="story">Story</button>
+      <button class="tab-btn" data-tab="culture">Cultural Significance</button>
+      <button class="tab-btn" data-tab="made">How It's Made</button>
+      <button class="tab-btn" data-tab="artisan">Meet the Artisan</button>
+      <button class="tab-btn" data-tab="risk">Why It's at Risk</button>
+      <button class="tab-btn" data-tab="preserve">Preservation Efforts</button>
+      <span class="section-count" aria-live="polite">Section 1 of 6</span>
+      <button class="tab-btn tab-btn-support" data-target="products-tc">Support This Craft</button>
+    </div>
+    <div class="tab-panel active" data-tab="story"><div class="grid"><div>
+  <h3>Story</h3>
+  <p>Terracotta is one of the oldest crafts still practised in India — the earliest pieces, toys, seals and small mother-goddess figures, come from Indus Valley sites like Harappa, Mohenjo-daro and Mehrgarh, roughly 5,000 years old. By the Mauryan and Shunga periods, potters were already using carved moulds to add fine detail to religious and everyday figures, a technique still visible in the sharper pieces made today.</p>
+  <p>What survives now is really a patchwork of regional styles, each shaped by local clay and local hands — not one continuous tradition but many small ones running in parallel.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="culture"><div class="grid"><div>
+  <h3>Cultural significance</h3>
+  <p>Terracotta has never been purely decorative in India — it sits right at the edge of the sacred and the everyday. Bishnupur in West Bengal built entire temples from it; villages in Tamil Nadu still raise towering Aiyyanar guardian figures at local shrines, made and consecrated as protective deities, not sold as art. At the same time, the same unglazed clay does completely unglamorous daily work — a matka keeps water cool, a kullad adds a faint earthy taste to tea, simply because nothing sits between the liquid and the clay.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="made"><div class="grid"><div>
+  <h3>How it's made</h3>
+  <p>Clay is dug locally, shaped by hand or on a wheel, and fired in an open or pit kiln rather than an electric one — the colour comes entirely from the clay's own mineral content, never a glaze. Regional styles diverge sharply from here: Bankura's horses are built up by hand without a wheel at all, Alwar's pottery is thinned down almost to paper, and Khavda's vessels are painted afterward in bold geometric patterns.</p>
+  <div class="process-timeline">
+    <div class="process-step"><span class="ps-num">1</span><h5>Dig the clay</h5><p>Sourced locally, by hand.</p></div>
+    <div class="process-step"><span class="ps-num">2</span><h5>Shape it</h5><p>By hand or on a potter's wheel.</p></div>
+    <div class="process-step"><span class="ps-num">3</span><h5>Fire it</h5><p>In an open or pit kiln — no glaze, no electric kiln.</p></div>
+    <div class="process-step"><span class="ps-num">4</span><h5>Regional finish</h5><p>Bankura hand-built, Alwar paper-thin, Khavda hand-painted.</p></div>
+  </div>
+</div></div></div>
+    <div class="tab-panel" data-tab="artisan"><div class="grid"><div>
+  <h3>Meet the artisan</h3>
+  <p>Terracotta doesn't have one face here yet — it's made by many small family workshops spread across Molela, Bankura, Gorakhpur, Alwar and Khavda, each holding a slightly different regional style. We haven't sourced from one named workshop yet; as we build a direct relationship with a specific potter, their name and story will replace this note.</p>
+  <div class="note-box">Know a terracotta artisan or workshop we should be working with directly? Tell us and we'll feature them here.</div>
+</div></div></div>
+    <div class="tab-panel" data-tab="risk"><div class="grid"><div>
+<h3>Why it's at risk</h3>
+  <div class="risk-grid"><div class="risk-card"><span class="num">01</span><h4>Time-intensive</h4><p>Digging clay, hand-shaping or wheel-throwing it, and firing it in an open kiln takes days per batch, with no shortcut that keeps the same unglazed finish.</p></div><div class="risk-card"><span class="num">02</span><h4>Changing demand</h4><p>Slip-cast replicas from factory moulds copy the look in a fraction of the time, and most buyers can't tell the difference at a glance.</p></div><div class="risk-card"><span class="num">03</span><h4>Fewer apprentices</h4><p>Regional styles like Molela's plaques or Bankura's horses depend on a handful of family workshops; when a family's children move to other work, that specific style usually isn't replaced.</p></div><div class="risk-card"><span class="num">04</span><h4>Knowledge can disappear</h4><p>Each regional style is a set of hand skills and clay knowledge tied to one place — once no one in that lineage is practising, that exact style is gone, even as terracotta itself survives elsewhere.</p></div></div>
+  <p class="risk-quote">A craft doesn't disappear when the last product is sold.<br>It disappears when the last person who knows how to make it has no one to teach.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="preserve"><div class="grid"><div>
+  <h3>Preservation efforts</h3>
+  <p>Gorakhpur's terracotta animal figures carry a Geographical Indication tag, granted in 2020 and backed by Uttar Pradesh's One District One Product (ODOP) scheme, which has helped that particular style find a wider market. Alwar and Khavda's styles get regional promotion through craft fairs and state emporia, and museums preserve historical pieces.</p>
+  <p>Government schemes, GI registration, craft fairs and museums all contribute to preservation. But sustaining a living craft also depends on continued demand, viable livelihoods and the transmission of skills to new artisans.</p>
+  <div class="factbox">
+    <h4>Quick facts</h4>
+    <ul>
+      <li>Traced back roughly 5,000 years to the Indus Valley Civilization</li>
+      <li>Gorakhpur's terracotta animal figures carry a GI tag</li>
+      <li>Tamil Nadu villages still build giant Aiyyanar guardian figures</li>
+      <li>Unglazed clay still naturally cools water and flavours food</li>
+    </ul>
+  </div>
+</div></div></div>
+  </div>
+</div>
+
+<section class="products" id="products-tc" style="border-bottom:none; padding-bottom:20px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="kicker"><span class="rule" style="background:var(--terracotta);"></span>Support the hands behind the craft</p><h2>Buy direct from Terracotta workshops</h2><p style="color:var(--ink-dim); font-size:0.94rem; margin:10px 0 0; max-width:52ch;">Discover products made by the artisans and organisations working to keep this tradition alive.</p></div>
+        <span class="note">Sample listings — swap in your own photos, prices &amp; descriptions</span>
+      </div>
+      <div class="productgrid" id="grid-terracotta"></div>
+    </div>
+  </section>
+
+  <div class="wrap craft-sources">
+    <h5>Sources</h5>
+    <ul><li><a href="https://odopup.in/en/article/Gorakhpur" target="_blank" rel="noopener">ODOP Uttar Pradesh — Gorakhpur Terracotta</a></li><li><a href="https://handicrafts.nic.in" target="_blank" rel="noopener">Office of the Development Commissioner (Handicrafts), Govt. of India</a></li></ul>
+  </div>
+
+  </main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="mark">Kalakari</div>
+        <p>Tale of Indian Handicrafts — a storytelling project built to keep five fading crafts a little harder to forget.</p>
+      </div>
+      <div>
+        <h5>Crafts</h5>
+        <ul>
+          <li><a href="terracotta.html">Terracotta</a></li>
+          <li><a href="toda.html">Toda Embroidery</a></li>
+          <li><a href="dhokra.html">Dhokra</a></li>
+          <li><a href="namda.html">Namda Craft</a></li>
+          <li><a href="sanjhi.html">Sanjhi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kalakari</h5>
+        <ul>
+          <li><a href="index.html#our-story">Our Story</a></li>
+          <li><a href="index.html#matters">Why This Matters</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Stay in the loop</h5>
+        <p style="margin-bottom:10px;">New pieces &amp; craft stories, once in a while.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); showToast('Thanks — you\'re on the list.');">
+          <input type="email" placeholder="you@email.com" required>
+          <button class="btn btn-solid btn-sm" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kalakari. All rights reserved.</span>
+      <span>Handmade in India, shipped everywhere.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem('kalakari_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<title>Sanjhi — Kalakari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="reading-progress"><span></span></div>
+<div class="announce"><b>Free shipping</b> on orders over ₹1,499 · Every piece is handmade, direct from the artisan</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a href="index.html" class="logo">
+      <span class="mark">Kalakari</span>
+      <small>tale of indian handicrafts</small>
+    </a>
+    <nav class="mainnav" id="mainnav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="terracotta.html" data-nav="terracotta">Terracotta</a>
+      <a href="toda.html" data-nav="toda">Toda</a>
+      <a href="dhokra.html" data-nav="dhokra">Dhokra</a>
+      <a href="namda.html" data-nav="namda">Namda</a>
+      <a href="sanjhi.html" data-nav="sanjhi" class="active">Sanjhi</a>
+      <a href="support.html" data-nav="support">Support</a>
+    </nav>
+    <div class="navside">
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap breadcrumb"><a href="index.html">Home</a> / Sanjhi</div>
+  <section class="craft-hero" style="background:linear-gradient(180deg, color-mix(in srgb, var(--sanjhi) 10%, var(--bg)), var(--bg));">
+    <div class="wrap grid">
+      <div>
+        <span class="badge" style="background:var(--sanjhi);">Mathura &amp; Vrindavan, Uttar Pradesh</span>
+        <h1>Sanjhi</h1>
+        <p class="origin">Hand-cut paper stencil art, made to decorate temple floors during evening prayers to Krishna.</p>
+        <a href="#products-sj" class="btn btn-solid" style="background:var(--sanjhi);">Support This Craft ↓</a>
+        <div class="stats">
+          <div><span class="n" style="color:var(--sanjhi);">2023</span><span class="l">year Sanjhi received its GI tag</span></div>
+          <div><span class="n" style="color:var(--sanjhi);">GI</span><span class="l">govt.-listed as an endangered craft</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="craft-visual" style="background:color-mix(in srgb, var(--sanjhi) 12%, var(--bg-alt)); padding:0; overflow:hidden;">
+          <video src="videos/sanjhi-artisan.mp4" poster="images/sanjhi-poster.jpg" controls playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;" aria-label="A Sanjhi paper-stencil artisan at work"></video>
+        </div>
+        <p class="video-caption">What to notice: an artisan hand-cutting the paper stencil (khakha) with small curved scissors, rotating the sheet to carve fine detail. (No spoken narration to caption.)</p>
+      </div>
+    </div>
+  </section>
+
+<div class="detail-tabs" style="--_accent: var(--sanjhi);">
+  <div class="wrap">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="story">Story</button>
+      <button class="tab-btn" data-tab="culture">Cultural Significance</button>
+      <button class="tab-btn" data-tab="made">How It's Made</button>
+      <button class="tab-btn" data-tab="artisan">Meet the Artisan</button>
+      <button class="tab-btn" data-tab="risk">Why It's at Risk</button>
+      <button class="tab-btn" data-tab="preserve">Preservation Efforts</button>
+      <span class="section-count" aria-live="polite">Section 1 of 6</span>
+      <button class="tab-btn tab-btn-support" data-target="products-sj">Support This Craft</button>
+    </div>
+    <div class="tab-panel active" data-tab="story"><div class="grid"><div>
+  <h3>Story</h3>
+  <p>Sanjhi takes its name from two words — "sajja," decoration, and "sanjh," dusk — because the finished piece was traditionally revealed to devotees each evening. Legend credits Radha with the very first Sanjhi, decorating the ground where she worshipped in order to draw Krishna to her. From there it grew into a temple ritual practised in Mathura and Vrindavan, Krishna's home region, for several centuries.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="culture"><div class="grid"><div>
+  <h3>Cultural significance</h3>
+  <p>This was never made to be sold — it was made to be prayed with. Temple priests and devotees cut and laid a fresh Sanjhi design each evening as part of Krishna worship, depicting his childhood stories, the Raas Leela dance, gopis, peacocks and lotus motifs. The art form and the devotion behind it were the same act; cutting the stencil with care was itself considered a form of bhakti, not a craft separate from the ritual.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="made"><div class="grid"><div>
+  <h3>How it's made</h3>
+  <p>An artisan hand-cuts a design into paper — originally rough paper or banana leaf, today usually handmade recycled paper — using small, specially curved scissors, rotating the sheet to carve fine detail rather than moving the blade. This stencil, called a khakha, is then laid on a floor or water surface and filled in with dry coloured powder, flower petals, mirror pieces or metal foil to complete the design. A single elaborate piece can take anywhere from an hour to over a month.</p>
+  <div class="process-timeline">
+    <div class="process-step"><span class="ps-num">1</span><h5>Cut the khakha</h5><p>Design hand-cut into paper with curved scissors.</p></div>
+    <div class="process-step"><span class="ps-num">2</span><h5>Lay the stencil</h5><p>Placed on a floor or water surface.</p></div>
+    <div class="process-step"><span class="ps-num">3</span><h5>Fill it in</h5><p>Coloured powder, petals, mirror pieces or foil.</p></div>
+    <div class="process-step"><span class="ps-num">4</span><h5>Time varies</h5><p>An hour for a simple piece, over a month for an elaborate one.</p></div>
+  </div>
+</div></div></div>
+    <div class="tab-panel" data-tab="artisan"><div class="grid"><div>
+  <h3>Meet the artisan</h3>
+  <p>Sanjhi survives today through a small number of documented families. In Mathura, the Verma family — brothers Vijay and Mohan Kumar Verma among them — has carried the craft for several generations. Ram Soni, whose family originally came from Uttar Pradesh, continues to practise it in Alwar, Rajasthan. We haven't sourced from a named artisan directly yet — once we do, their story will replace this note.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="risk"><div class="grid"><div>
+<h3>Why it's at risk</h3>
+  <div class="risk-grid"><div class="risk-card"><span class="num">01</span><h4>Time-intensive</h4><p>A single elaborate Sanjhi design, hand-cut with small curved scissors, can take anywhere from an hour to over a month to complete.</p></div><div class="risk-card"><span class="num">02</span><h4>Changing demand</h4><p>The ephemeral, ritual version of Sanjhi — recreated fresh each evening on a temple floor — has little commercial market of its own, so what survives now leans on demand for framed, standalone paper-cut art instead.</p></div><div class="risk-card"><span class="num">03</span><h4>Fewer apprentices</h4><p>What was once practised widely across Rajasthan, Madhya Pradesh and Gujarat now survives mainly through a small number of families around Mathura.</p></div><div class="risk-card"><span class="num">04</span><h4>Knowledge can disappear</h4><p>The Government of India has formally listed Sanjhi as an endangered craft — official recognition that very few people can still cut a stencil this fine.</p></div></div>
+  <p class="risk-quote">A craft doesn't disappear when the last product is sold.<br>It disappears when the last person who knows how to make it has no one to teach.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="preserve"><div class="grid"><div>
+  <h3>Preservation efforts</h3>
+  <p>Sanjhi received a Geographical Indication tag in 2023, formally recognising Mathura as its home. Craft-documentation and revival groups have also begun showcasing surviving artisans' work outside temple settings — as lamp shades, wall frames and paper-cut art — giving the technique a market beyond its original ritual use.</p>
+  <p>Government schemes, GI registration, craft fairs and museums all contribute to preservation. But sustaining a living craft also depends on continued demand, viable livelihoods and the transmission of skills to new artisans.</p>
+  <div class="factbox">
+    <h4>Quick facts</h4>
+    <ul>
+      <li>Name comes from "sajja" (decoration) and "sanjh" (dusk)</li>
+      <li>Centuries-old temple ritual art from Mathura &amp; Vrindavan</li>
+      <li>Cut with fine curved scissors into a stencil called a khakha</li>
+      <li>Listed as an endangered craft by the Government of India</li>
+      <li>Received a Geographical Indication tag in 2023</li>
+    </ul>
+  </div>
+</div></div></div>
+  </div>
+</div>
+
+<section class="products" id="products-sj" style="border-bottom:none; padding-bottom:20px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="kicker"><span class="rule" style="background:var(--sanjhi);"></span>Support the hands behind the craft</p><h2>Buy direct from Sanjhi artisans</h2><p style="color:var(--ink-dim); font-size:0.94rem; margin:10px 0 0; max-width:52ch;">Discover products made by the artisans and organisations working to keep this tradition alive.</p></div>
+        <span class="note">Real listings — hand-cut Sanjhi paper art, sourced and photographed directly</span>
+      </div>
+      <div class="productgrid" id="grid-sanjhi"></div>
+    </div>
+  </section>
+
+  <div class="wrap craft-sources">
+    <h5>Sources</h5>
+    <ul><li><a href="https://handicrafts.nic.in/crafts/All_Crafts/Craft_Categories/Paper/Paper_Crafts/Mathura_Sanjhi_Craft/MathuraSanjhiWebPage.html" target="_blank" rel="noopener">Office of the Development Commissioner (Handicrafts) — Mathura Sanjhi Craft</a></li><li><a href="https://www.aiacaonline.org/craftkatha-pop-up/sanjhi" target="_blank" rel="noopener">AIACA — Craftkatha: Sanjhi</a></li></ul>
+  </div>
+
+  </main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="mark">Kalakari</div>
+        <p>Tale of Indian Handicrafts — a storytelling project built to keep five fading crafts a little harder to forget.</p>
+      </div>
+      <div>
+        <h5>Crafts</h5>
+        <ul>
+          <li><a href="terracotta.html">Terracotta</a></li>
+          <li><a href="toda.html">Toda Embroidery</a></li>
+          <li><a href="dhokra.html">Dhokra</a></li>
+          <li><a href="namda.html">Namda Craft</a></li>
+          <li><a href="sanjhi.html">Sanjhi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kalakari</h5>
+        <ul>
+          <li><a href="index.html#our-story">Our Story</a></li>
+          <li><a href="index.html#matters">Why This Matters</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Stay in the loop</h5>
+        <p style="margin-bottom:10px;">New pieces &amp; craft stories, once in a while.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); showToast('Thanks — you\'re on the list.');">
+          <input type="email" placeholder="you@email.com" required>
+          <button class="btn btn-solid btn-sm" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kalakari. All rights reserved.</span>
+      <span>Handmade in India, shipped everywhere.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

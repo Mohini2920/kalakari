@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem('kalakari_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<title>Dhokra — Kalakari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,600&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="reading-progress"><span></span></div>
+<div class="announce"><b>Free shipping</b> on orders over ₹1,499 · Every piece is handmade, direct from the artisan</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a href="index.html" class="logo">
+      <span class="mark">Kalakari</span>
+      <small>tale of indian handicrafts</small>
+    </a>
+    <nav class="mainnav" id="mainnav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="terracotta.html" data-nav="terracotta">Terracotta</a>
+      <a href="toda.html" data-nav="toda">Toda</a>
+      <a href="dhokra.html" data-nav="dhokra" class="active">Dhokra</a>
+      <a href="namda.html" data-nav="namda">Namda</a>
+      <a href="sanjhi.html" data-nav="sanjhi">Sanjhi</a>
+      <a href="support.html" data-nav="support">Support</a>
+    </nav>
+    <div class="navside">
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">Cart <span class="cart-count" id="cartCount">0</span></button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap breadcrumb"><a href="index.html">Home</a> / Dhokra</div>
+  <section class="craft-hero" style="background:linear-gradient(180deg, color-mix(in srgb, var(--dhokra) 10%, var(--bg)), var(--bg));">
+    <div class="wrap grid">
+      <div>
+        <span class="badge" style="background:var(--dhokra);">Chhattisgarh · Odisha · West Bengal · Jharkhand</span>
+        <h1>Dhokra Metal Casting</h1>
+        <p class="origin">Lost-wax brass casting — every piece is one-of-one, because the mould is destroyed to release it.</p>
+        <a href="#products-dh" class="btn btn-solid" style="background:var(--dhokra);">Support This Craft ↓</a>
+        <div class="stats">
+          <div><span class="n" style="color:var(--dhokra);">3</span><span class="l">products listed</span></div>
+          <div><span class="n" style="color:var(--dhokra);">1-of-1</span><span class="l">every casting</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="craft-visual" style="background:color-mix(in srgb, var(--dhokra) 12%, var(--bg-alt)); padding:0; overflow:hidden;">
+          <video src="videos/dhokra-artisan.mp4" poster="images/dhokra-poster.jpg" controls playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;" aria-label="A Dhokra lost-wax casting artisan at work"></video>
+        </div>
+        <p class="video-caption">What to notice: the lost-wax steps — a wax model built over a clay core, then molten brass poured in once the wax has been fired out. (No spoken narration to caption.)</p>
+      </div>
+    </div>
+  </section>
+
+  
+<div class="detail-tabs" style="--_accent: var(--dhokra);">
+  <div class="wrap">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="story">Story</button>
+      <button class="tab-btn" data-tab="culture">Cultural Significance</button>
+      <button class="tab-btn" data-tab="made">How It's Made</button>
+      <button class="tab-btn" data-tab="artisan">Meet the Artisan</button>
+      <button class="tab-btn" data-tab="risk">Why It's at Risk</button>
+      <button class="tab-btn" data-tab="preserve">Preservation Efforts</button>
+      <span class="section-count" aria-live="polite">Section 1 of 6</span>
+      <button class="tab-btn tab-btn-support" data-target="products-dh">Support This Craft</button>
+    </div>
+    <div class="tab-panel active" data-tab="story"><div class="grid"><div>
+  <h3>Story</h3>
+  <p>Dhokra is both the name of a casting technique and the name of the people who carry it — the Dhokra Damar, originally a nomadic tribe of metalsmiths who moved village to village across West Bengal, Odisha, Jharkhand, Madhya Pradesh and Chhattisgarh, casting ritual objects, lamps and ornaments wherever they stopped. Over generations, many families settled into specific regions, but the craft kept their name.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="culture"><div class="grid"><div>
+  <h3>Cultural significance</h3>
+  <p>Many Dhokra pieces were never purely decorative — animal figurines were cast for worship, lamps for ritual use, ornaments for adornment. The method itself is startlingly old: the same lost-wax casting used to make the Indus Valley's famous bronze "Dancing Girl" thousands of years ago is, technically, what's still happening in a Dhokra workshop today, which makes every piece a living link to one of the oldest metalworking traditions on the subcontinent.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="made"><div class="grid"><div>
+  <h3>How it's made</h3>
+  <p>An artisan builds the form in wax over a clay core, encases it in more clay, then fires it so the wax drains out and molten brass takes its place. Cracking open that clay shell to free the finished piece destroys the mould completely — which is exactly why no two Dhokra pieces are ever quite twins.</p>
+  <div class="process-timeline">
+    <div class="process-step"><span class="ps-num">1</span><h5>Build a clay core</h5><p>The rough inner form for the piece.</p></div>
+    <div class="process-step"><span class="ps-num">2</span><h5>Model in wax</h5><p>The design is shaped in wax over the core.</p></div>
+    <div class="process-step"><span class="ps-num">3</span><h5>Encase & fire</h5><p>More clay wraps it; firing drains out the wax.</p></div>
+    <div class="process-step"><span class="ps-num">4</span><h5>Pour molten brass</h5><p>Brass fills the space the wax left behind.</p></div>
+    <div class="process-step"><span class="ps-num">5</span><h5>Break the mould</h5><p>Cracked open to free the piece — never reused.</p></div>
+  </div>
+</div></div></div>
+    <div class="tab-panel" data-tab="artisan"><div class="grid"><div>
+  <h3>Meet the artisan</h3>
+  <p>Dhokra today is carried by many small family workshops across the Ghadwa and Dhokra Damar communities, rather than one identifiable name. We haven't sourced from a specific named workshop yet — as we build a direct relationship with one, their name and story will go here.</p>
+  <div class="note-box">Know a Dhokra artisan or cooperative we should feature? Let us know.</div>
+</div></div></div>
+    <div class="tab-panel" data-tab="risk"><div class="grid"><div>
+<h3>Why it's at risk</h3>
+  <div class="risk-grid"><div class="risk-card"><span class="num">01</span><h4>Time-intensive</h4><p>Building a wax-thread form, encasing it in clay, firing it and casting brass into the mould is a multi-day process for one piece — and the mould can never be reused.</p></div><div class="risk-card"><span class="num">02</span><h4>Changing demand</h4><p>Faster casting shortcuts that skip the wax-thread stage produce a similar look at a lower price, competing directly with the slower, fully hand-built method.</p></div><div class="risk-card"><span class="num">03</span><h4>Fewer apprentices</h4><p>Dhokra is carried by small family workshops across the Ghadwa and Dhokra Damar communities; each workshop that closes takes its specific motifs and techniques with it.</p></div><div class="risk-card"><span class="num">04</span><h4>Knowledge can disappear</h4><p>The lost-wax method is one of the oldest continuously practised techniques in South Asia — but its continuity depends entirely on someone choosing to learn it in each generation.</p></div></div>
+  <p class="risk-quote">A craft doesn't disappear when the last product is sold.<br>It disappears when the last person who knows how to make it has no one to teach.</p>
+</div></div></div>
+    <div class="tab-panel" data-tab="preserve"><div class="grid"><div>
+  <h3>Preservation efforts</h3>
+  <p>Certain regional styles of Dhokra, including Chhattisgarh's Bastar Dhokra (GI-registered in 2014), carry their own Geographical Indication tags. Government emporia and craft cooperatives across the tribal belt provide some of the only steady sales channels for artisans working far from major cities.</p>
+  <p>Government schemes, GI registration, craft fairs and museums all contribute to preservation. But sustaining a living craft also depends on continued demand, viable livelihoods and the transmission of skills to new artisans.</p>
+  <div class="factbox">
+    <h4>Quick facts</h4>
+    <ul>
+      <li>Named after the Dhokra Damar tribe of Eastern &amp; Central India</li>
+      <li>Same lost-wax method behind ancient bronzes like the Dancing Girl</li>
+      <li>Mould is broken to release each piece — nothing is ever recast</li>
+      <li>Bastar Dhokra (Chhattisgarh) carries its own GI tag</li>
+    </ul>
+  </div>
+</div></div></div>
+  </div>
+</div>
+
+<section class="products" id="products-dh" style="border-bottom:none; padding-bottom:20px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="kicker"><span class="rule" style="background:var(--dhokra);"></span>Support the hands behind the craft</p><h2>Buy direct from Dhokra workshops</h2><p style="color:var(--ink-dim); font-size:0.94rem; margin:10px 0 0; max-width:52ch;">Discover products made by the artisans and organisations working to keep this tradition alive.</p></div>
+        <span class="note">Sample listings — swap in your own photos, prices &amp; descriptions</span>
+      </div>
+      <div class="productgrid" id="grid-dhokra"></div>
+    </div>
+  </section>
+
+  <div class="wrap craft-sources">
+    <h5>Sources</h5>
+    <ul><li><a href="https://search.ipindia.gov.in/GIRPublicSearch/Application/Details/387" target="_blank" rel="noopener">India GI Registry — Bastar Dhokra application record</a></li><li><a href="https://mapacademy.io/?p=12366" target="_blank" rel="noopener">Map Academy — Dhokra</a></li></ul>
+  </div>
+
+  </main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="mark">Kalakari</div>
+        <p>Tale of Indian Handicrafts — a storytelling project built to keep five fading crafts a little harder to forget.</p>
+      </div>
+      <div>
+        <h5>Crafts</h5>
+        <ul>
+          <li><a href="terracotta.html">Terracotta</a></li>
+          <li><a href="toda.html">Toda Embroidery</a></li>
+          <li><a href="dhokra.html">Dhokra</a></li>
+          <li><a href="namda.html">Namda Craft</a></li>
+          <li><a href="sanjhi.html">Sanjhi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kalakari</h5>
+        <ul>
+          <li><a href="index.html#our-story">Our Story</a></li>
+          <li><a href="index.html#matters">Why This Matters</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Stay in the loop</h5>
+        <p style="margin-bottom:10px;">New pieces &amp; craft stories, once in a while.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); showToast('Thanks — you\'re on the list.');">
+          <input type="email" placeholder="you@email.com" required>
+          <button class="btn btn-solid btn-sm" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kalakari. All rights reserved.</span>
+      <span>Handmade in India, shipped everywhere.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
