@@ -1,0 +1,4 @@
+Kalakari — Tale of Indian Handicrafts
+A storytelling site about five Indian handicraft traditions that are slowly running out of people to carry them forward: Terracotta, Toda Embroidery, Dhokra, Namda, and Sanjhi.
+This isn't an e-commerce store, even though it does eventually let you buy something. The whole point was to answer one question first — why does this craft matter, and who's still making it — before asking anyone to reach for their wallet. Each craft page walks through the story, the cultural significance, how it's actually made, the artisan behind it, and why it's at risk of disappearing. Only after all that does it offer a small, honestly-labelled way to support it.
+"Because the problem I wanted to address wasn't simply access to handicrafts. It was awareness and understanding. I wanted users to first understand the cultural value and the people behind a craft, and then decide how they want to support it."
