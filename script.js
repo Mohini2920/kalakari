@@ -29,6 +29,13 @@
     }
   })();
 
+  // ---------------- Backend API ----------------
+  // Local testing talks to the API on your computer; the live site talks to the
+  // deployed API. After deploying on Render, paste its URL into API_PROD.
+  var API_PROD = 'https://kalakari-api.onrender.com';
+  var isLocal = location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  var API_BASE = isLocal ? 'http://127.0.0.1:8000' : API_PROD;
+
   var TODA_IMG_RUNNER = "images/toda_runner.jpg";
   var TODA_IMG_CUSHION = "images/toda_cushion.jpg";
   var TODA_IMG_SHAWL = "images/toda_shawl2.jpg";
@@ -71,6 +78,26 @@
       {n:"Sanjhi Krishna Swing Panel", p:"₹1,299", d:"Fine hand-cut Radha-Krishna scene under a flowering tree.", img: SJ_IMG_KRISHNA_SWING}
     ]
   };
+  // Give the built-in list the same ids the API seeds (1-15, in this order),
+  // so enquiries still work if the API is slow to answer on first load.
+  (function(){ var id = 1; ['terracotta','toda','dhokra','namda','sanjhi'].forEach(function(c){ products[c].forEach(function(p){ p.id = id++; }); }); })();
+
+  // Load the pieces from the API and redraw the grids. The built-in list above stays as a fallback.
+  function loadProductsFromApi(){
+    if(!window.fetch || !document.querySelector('.productgrid')) return;
+    fetch(API_BASE + '/api/products').then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(list){
+        if(!Array.isArray(list) || !list.length) return;
+        var grouped = {};
+        list.forEach(function(p){
+          (grouped[p.craft] = grouped[p.craft] || []).push({ id:p.id, n:p.name, d:p.description, img:p.image, status:p.status });
+        });
+        Object.keys(grouped).forEach(function(c){ products[c] = grouped[c]; });
+        buildGrids();
+      })
+      .catch(function(){ /* keep the built-in list */ });
+  }
+
   var accent = {terracotta:"var(--terracotta)", toda:"var(--toda)", dhokra:"var(--dhokra)", namda:"var(--namda)", sanjhi:"var(--sanjhi)"};
 
   function iconSvg(craft){
@@ -133,7 +160,7 @@
     var key = craft + '-' + idx;
     var existing = cartItems.filter(function(it){ return it.key === key; })[0];
     if(existing){ existing.qty += 1; }
-    else{ cartItems.push({ key:key, craft:craft, idx:idx, n:item.n, p:item.p, img:item.img||'', qty:1 }); }
+    else{ cartItems.push({ key:key, id:item.id, craft:craft, idx:idx, n:item.n, p:item.p, img:item.img||'', qty:1 }); }
     saveCart();
     renderCartBadge();
     renderCartDrawer();
@@ -259,9 +286,6 @@
 
   // ---------------- Cart drawer ----------------
   var cartOverlay, cartDrawerEl, cartItemsEl, cartShippingEl, cartSubtotalEl, cartLastFocused;
-  // Set this to a real, monitored inbox before launch. While it is empty, the
-  // enquiry button copies the list instead of opening a broken mailto link.
-  var ENQUIRY_EMAIL = 'm7909050@gmail.com';
 
   function ensureCartDrawer(){
     if(cartOverlay) return;
@@ -273,10 +297,17 @@
       +   '<div class="cart-drawer-shipping"></div>'
       +   '<div class="cart-drawer-items"></div>'
       +   '<div class="cart-drawer-footer">'
-            +     '<div class="cart-drawer-actions">'
-      +       '<button class="btn btn-outline cart-continue" type="button">Continue browsing</button>'
-      +       '<a class="btn btn-solid cart-enquire" href="#">Enquire about these pieces</a>'
-      +     '</div>'
+      +     '<form class="enquiry-form">'
+      +       '<label>Your name<input name="name" type="text" maxlength="80" required autocomplete="name"></label>'
+      +       '<label>Email<input name="email" type="email" maxlength="254" required autocomplete="email"></label>'
+      +       '<label>Message (optional)<textarea name="message" rows="2" maxlength="2000" placeholder="Anything you\'d like to ask?"></textarea></label>'
+      +       '<div class="hp" aria-hidden="true"><label>Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>'
+      +       '<p class="enquiry-status" role="status" aria-live="polite"></p>'
+      +       '<div class="cart-drawer-actions">'
+      +         '<button class="btn btn-solid cart-enquire" type="submit">Send enquiry</button>'
+      +         '<button class="btn btn-outline cart-continue" type="button">Continue browsing</button>'
+      +       '</div>'
+      +     '</form>'
       +     '<p class="cart-drawer-note">The shop is pre-launch. These are example pieces, so there is no checkout and no payment. We\'ll reply once we have a named maker and a fair price.</p>'
       +   '</div>'
       + '</aside>';
@@ -289,16 +320,7 @@
     cartOverlay.addEventListener('click', function(e){ if(e.target === cartOverlay) closeCartDrawer(); });
     cartOverlay.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
     cartOverlay.querySelector('.cart-continue').addEventListener('click', closeCartDrawer);
-    cartOverlay.querySelector('.cart-enquire').addEventListener('click', function(e){
-      if(ENQUIRY_EMAIL || !cartItems.length) return;
-      e.preventDefault();
-      var body = this.getAttribute('data-body') || '';
-      var ok = function(){ showToast('Enquiry copied. Enquiries open at launch.'); };
-      try{
-        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(body).then(ok, ok); }
-        else ok();
-      }catch(err){ ok(); }
-    });
+    cartOverlay.querySelector('.enquiry-form').addEventListener('submit', submitEnquiry);
     cartItemsEl.addEventListener('click', function(e){
       var incBtn = e.target.closest('.qty-inc');
       var decBtn = e.target.closest('.qty-dec');
@@ -333,21 +355,48 @@
       }).join('');
     }
     cartShippingEl.innerHTML = '';
-    var enquireLink = cartOverlay.querySelector('.cart-enquire');
-    if(enquireLink){
-      if(cartItems.length){
-        var lines = cartItems.map(function(it){ return '- ' + it.n + ' (x' + it.qty + ')'; });
-        var body = 'Hi Kalakari,\n\nI would like to ask about these pieces:\n\n' + lines.join('\n')
-          + '\n\nPlease let me know when these are available from a named maker, and at what price.';
-        enquireLink.setAttribute('data-body', body);
-        enquireLink.href = !ENQUIRY_EMAIL ? '#' : 'mailto:' + ENQUIRY_EMAIL + '?subject=' + encodeURIComponent('Enquiry about my Kalakari selections')
-          + '&body=' + encodeURIComponent(body);
-        enquireLink.setAttribute('aria-disabled', 'false');
+    var form = cartOverlay.querySelector('.enquiry-form');
+    if(form) form.style.display = cartItems.length ? '' : 'none';
+  }
+
+  function submitEnquiry(e){
+    e.preventDefault();
+    var form = e.target;
+    var statusEl = form.querySelector('.enquiry-status');
+    var btn = form.querySelector('.cart-enquire');
+    if(!cartItems.length) return;
+    var items = cartItems.map(function(it){
+      var id = it.id || ((products[it.craft] || [])[it.idx] || {}).id;
+      return { product_id:id, quantity:it.qty };
+    });
+    var payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim(),
+      website: form.website.value,
+      items: items
+    };
+    btn.disabled = true; btn.textContent = 'Sending…'; statusEl.textContent = '';
+    fetch(API_BASE + '/api/enquiries', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)
+    }).then(function(r){
+      return r.json().catch(function(){ return {}; }).then(function(data){ return { ok:r.ok, status:r.status, data:data }; });
+    }).then(function(res){
+      if(res.ok){
+        cartItems = []; saveCart(); renderCartBadge(); form.reset();
+        renderCartDrawer();
+        cartItemsEl.innerHTML = '<div class="cart-empty"><p>Thanks, we\'ve received your enquiry. We\'ll reply by email once we have a named maker and a fair price.</p><a class="btn btn-outline" href="index.html">Back to the crafts →</a></div>';
+        showToast('Enquiry sent');
+      } else if(res.status === 429){
+        statusEl.textContent = 'Too many attempts. Please wait a minute and try again.';
+      } else if(res.status === 422){
+        statusEl.textContent = 'Please check your name and email address.';
       } else {
-        enquireLink.href = '#';
-        enquireLink.setAttribute('aria-disabled', 'true');
+        statusEl.textContent = (res.data && typeof res.data.detail === 'string') ? res.data.detail : 'Something went wrong. Please try again.';
       }
-    }
+    }).catch(function(){
+      statusEl.textContent = 'Could not reach the server. It may be waking up after a quiet spell, so please try again in a minute.';
+    }).then(function(){ btn.disabled = false; btn.textContent = 'Send enquiry'; });
   }
 
   function openCartDrawer(triggerEl){
@@ -531,5 +580,24 @@
     });
   }
 
+  // Newsletter signup (footer form on every page)
+  document.querySelectorAll('form.newsletter').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var input = form.querySelector('input[type="email"]');
+      var btn = form.querySelector('button');
+      btn.disabled = true;
+      fetch(API_BASE + '/api/subscribe', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email: input.value.trim() })
+      }).then(function(r){
+        if(r.ok){ form.reset(); showToast('Thanks, you\'re on the list.'); }
+        else if(r.status === 429){ showToast('Too many attempts. Try again in a minute.'); }
+        else { showToast('Please check that email address.'); }
+      }).catch(function(){ showToast('Could not reach the server. Please try again shortly.'); })
+        .then(function(){ btn.disabled = false; });
+    });
+  });
+
   buildGrids();
+  loadProductsFromApi();
 })();

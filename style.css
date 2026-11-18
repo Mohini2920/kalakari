@@ -470,3 +470,15 @@
   /* ---------------- End-of-arc link to example pieces ---------------- */
   .arc-next{ margin-top:28px; }
   .pcard .price.on-enquiry{ font-weight:600; font-size:0.86rem; color:var(--ink-faint); }
+
+  /* ---------------- Enquiry form (in the enquiry drawer) ---------------- */
+  .enquiry-form{ display:flex; flex-direction:column; gap:10px; }
+  .enquiry-form label{ display:flex; flex-direction:column; gap:4px; font-size:0.78rem; font-weight:600; color:var(--ink-dim); }
+  .enquiry-form input, .enquiry-form textarea{
+    font:inherit; font-size:0.88rem; font-weight:400; color:var(--ink); background:var(--bg);
+    border:1px solid var(--line); border-radius:8px; padding:8px 10px; resize:vertical;
+  }
+  .enquiry-form input:focus-visible, .enquiry-form textarea:focus-visible{ outline:2px solid var(--terracotta); outline-offset:1px; }
+  .enquiry-form .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .enquiry-status{ font-size:0.8rem; color:var(--toda); margin:0; min-height:1em; }
+  .enquiry-form .cart-enquire[disabled]{ opacity:.6; cursor:wait; }
