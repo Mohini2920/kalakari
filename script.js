@@ -261,7 +261,7 @@
   var cartOverlay, cartDrawerEl, cartItemsEl, cartShippingEl, cartSubtotalEl, cartLastFocused;
   // Set this to a real, monitored inbox before launch. While it is empty, the
   // enquiry button copies the list instead of opening a broken mailto link.
-  var ENQUIRY_EMAIL = '';
+  var ENQUIRY_EMAIL = 'm7909050@gmail.com';
 
   function ensureCartDrawer(){
     if(cartOverlay) return;
