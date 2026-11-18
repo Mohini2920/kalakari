@@ -102,8 +102,8 @@
           + '<div class="pbody">'
           + '<h4>'+item.n+'</h4>'
           + '<p>'+item.d+'</p>'
-          + '<span class="price" style="color:'+c+';">'+item.p+'</span>'
-          + '<button class="addcart" style="border-color:'+c+'; color:'+c+';" data-craft="'+craft+'" data-idx="'+idx+'">View Artisan &amp; Buy</button>'
+          + '<span class="price on-enquiry">Example piece · price on enquiry</span>'
+          + '<button class="addcart" style="border-color:'+c+'; color:'+c+';" data-craft="'+craft+'" data-idx="'+idx+'">View details &amp; enquire</button>'
           + '</div></div>';
       }).join('');
     });
@@ -111,7 +111,6 @@
 
   // ---------------- Cart data (persisted, product-level) ----------------
   var CART_KEY = 'kalakari_cart_items';
-  var FREE_SHIP_THRESHOLD = 1499;
   var cartItems = [];
   try{
     var storedCart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
@@ -138,7 +137,7 @@
     saveCart();
     renderCartBadge();
     renderCartDrawer();
-    showToast('Added "'+item.n+'" to cart');
+    showToast('Added "'+item.n+'" to your enquiry list');
     openCartDrawer(cartBtnEl);
   };
 
@@ -160,11 +159,11 @@
 
   // Craft-level context shown in the artisan modal
   var craftInfo = {
-    terracotta: { label:"Terracotta", region:"Rajasthan · West Bengal · Gujarat · UP", artisan:"Made by small family workshops across regional clusters like Molela, Bankura, Gorakhpur, Alwar and Khavda — we haven't sourced from one named workshop yet.", helps:"Buying direct supports the family workshops still hand-shaping and open-firing terracotta, rather than factory slip-cast replicas." },
-    toda: { label:"Toda Embroidery", region:"Nilgiri Hills, Tamil Nadu", artisan:"Made by Toda women of the Nilgiris using counted-thread pukhoor embroidery — a skill taught only within the community, mother to daughter.", helps:"Buying direct puts more of the price in the embroiderer's hands than the usual cooperative-to-retail chain, where field reports show makers keep only a small share." },
-    dhokra: { label:"Dhokra", region:"Chhattisgarh · Odisha · West Bengal · Jharkhand", artisan:"Cast by artisans from the Ghadwa and Dhokra Damar communities using lost-wax casting — we haven't sourced from one named workshop yet.", helps:"Buying direct supports the slow, fuel-heavy lost-wax process over faster casting shortcuts that skip it." },
-    namda: { label:"Namda Craft", region:"Kashmir · Kutch, Gujarat", artisan:"Felted and embroidered by artisans in Gagodar and Mundra, Kachchh, supported by the crafts organisation Khamir.", helps:"Only four Namda practitioners are known to still be active in Kachchh — buying direct helps keep that small, specific skill set economically viable." },
-    sanjhi: { label:"Sanjhi", region:"Mathura & Vrindavan, Uttar Pradesh", artisan:"Hand-cut by a small number of families, including artisans documented in Mathura and Alwar — we haven't sourced from one named workshop yet.", helps:"Sanjhi is formally listed as an endangered craft by the Government of India — buying direct supports one of very few people who can still cut a stencil this fine." }
+    terracotta: { label:"Terracotta", region:"Rajasthan · West Bengal · Gujarat · UP", artisan:"Made by small family workshops across regional clusters like Molela, Bankura, Gorakhpur, Alwar and Khavda — we haven't sourced from one named workshop yet.", helps:"Your enquiry tells us there is demand. We'll only sell once we source from a named workshop at a fair price." },
+    toda: { label:"Toda Embroidery", region:"Nilgiri Hills, Tamil Nadu", artisan:"Made by Toda women of the Nilgiris using counted-thread pukhoor embroidery — we haven't sourced from a named embroiderer yet.", helps:"A full shawl takes 25+ days. We'll only sell once we can pay a named maker fairly for that time, and say how the price is split." },
+    dhokra: { label:"Dhokra", region:"Chhattisgarh · Odisha · West Bengal · Jharkhand", artisan:"Cast by artisans from the Ghadwa and Dhokra Damar communities using lost-wax casting — we haven't sourced from one named workshop yet.", helps:"Your enquiry tells us there is demand. We'll only sell once we source from a named workshop at a fair price." },
+    namda: { label:"Namda Craft", region:"Kashmir · Kutch, Gujarat", artisan:"Namda is made in Kashmir and, by a few remaining artisans, in Gagodar and Mundra, Kachchh — we haven't sourced from a named artisan yet.", helps:"Khamir counts only four Namda practitioners still active in Kachchh. We'll only sell once we source from a named maker at a fair price." },
+    sanjhi: { label:"Sanjhi", region:"Mathura & Vrindavan, Uttar Pradesh", artisan:"Hand-cut by a small number of families, including artisans documented in Mathura and Alwar — we haven't sourced from one named workshop yet.", helps:"Very few people can still cut a stencil this fine. We'll only sell once we source from a named maker at a fair price." }
   };
 
   // ---------------- Generic focus-trap helpers (shared by modal, cart drawer & lightbox) ----------------
@@ -221,12 +220,12 @@
     var c = accent[craft] || 'var(--terracotta)';
     modalCard.innerHTML =
       '<h3 id="modalTitle">'+item.n+'</h3>'
-      + '<div class="modal-price" style="color:'+c+';">'+item.p+'</div>'
+      + '<div class="modal-price" style="color:var(--ink-faint);font-weight:600;font-size:0.88rem;">Example piece · price on enquiry</div>'
       + '<div class="modal-row"><div class="k">Who made this</div><div class="v">'+(info.artisan||'')+'</div></div>'
       + '<div class="modal-row"><div class="k">Where</div><div class="v">'+(info.region||'')+'</div></div>'
-      + '<div class="modal-row"><div class="k">Tradition</div><div class="v"><a href="#'+craft+'" style="color:'+c+';">'+(info.label||craft)+' →</a></div></div>'
-      + '<div class="modal-row"><div class="k">How this helps</div><div class="v">'+(info.helps||'')+'</div></div>'
-      + '<div class="modal-actions"><button class="btn btn-solid" style="background:'+c+';" id="modalAddToCart">Add to Cart</button></div>';
+      + '<div class="modal-row"><div class="k">Tradition</div><div class="v"><a href="'+craft+'.html#story-'+({terracotta:'tc',toda:'td',dhokra:'dh',namda:'nd',sanjhi:'sj'}[craft])+'" style="color:'+c+';">'+(info.label||craft)+' →</a></div></div>'
+      + '<div class="modal-row"><div class="k">Where we are</div><div class="v">'+(info.helps||'')+'</div></div>'
+      + '<div class="modal-actions"><button class="btn btn-solid" style="background:'+c+';" id="modalAddToCart">Add to enquiry list</button></div>';
     modalCard.querySelector('#modalAddToCart').addEventListener('click', function(){
       window.addToCart(craft, idx);
     });
@@ -260,7 +259,9 @@
 
   // ---------------- Cart drawer ----------------
   var cartOverlay, cartDrawerEl, cartItemsEl, cartShippingEl, cartSubtotalEl, cartLastFocused;
-  var ENQUIRY_EMAIL = 'hello@kalakari.example'; // sample address — swap in a real inbox
+  // Set this to a real, monitored inbox before launch. While it is empty, the
+  // enquiry button copies the list instead of opening a broken mailto link.
+  var ENQUIRY_EMAIL = '';
 
   function ensureCartDrawer(){
     if(cartOverlay) return;
@@ -268,27 +269,36 @@
     cartOverlay.className = 'cart-overlay';
     cartOverlay.innerHTML =
       '<aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">'
-      +   '<div class="cart-drawer-head"><h3 id="cartDrawerTitle">Your cart</h3><button class="cart-drawer-close" aria-label="Close cart">✕</button></div>'
+      +   '<div class="cart-drawer-head"><h3 id="cartDrawerTitle">Your enquiry list</h3><button class="cart-drawer-close" aria-label="Close enquiry list">✕</button></div>'
       +   '<div class="cart-drawer-shipping"></div>'
       +   '<div class="cart-drawer-items"></div>'
       +   '<div class="cart-drawer-footer">'
-      +     '<div class="cart-drawer-subtotal"><span>Subtotal</span><span class="amt">₹0</span></div>'
-      +     '<div class="cart-drawer-actions">'
+            +     '<div class="cart-drawer-actions">'
       +       '<button class="btn btn-outline cart-continue" type="button">Continue browsing</button>'
       +       '<a class="btn btn-solid cart-enquire" href="#">Enquire about these pieces</a>'
       +     '</div>'
-      +     '<p class="cart-drawer-note">These are sample listings, so this opens an enquiry email rather than a live checkout.</p>'
+      +     '<p class="cart-drawer-note">The shop is pre-launch. These are example pieces, so there is no checkout and no payment. We\'ll reply once we have a named maker and a fair price.</p>'
       +   '</div>'
       + '</aside>';
     document.body.appendChild(cartOverlay);
     cartDrawerEl = cartOverlay.querySelector('.cart-drawer');
     cartItemsEl = cartOverlay.querySelector('.cart-drawer-items');
     cartShippingEl = cartOverlay.querySelector('.cart-drawer-shipping');
-    cartSubtotalEl = cartOverlay.querySelector('.cart-drawer-subtotal .amt');
+    
 
     cartOverlay.addEventListener('click', function(e){ if(e.target === cartOverlay) closeCartDrawer(); });
     cartOverlay.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
     cartOverlay.querySelector('.cart-continue').addEventListener('click', closeCartDrawer);
+    cartOverlay.querySelector('.cart-enquire').addEventListener('click', function(e){
+      if(ENQUIRY_EMAIL || !cartItems.length) return;
+      e.preventDefault();
+      var body = this.getAttribute('data-body') || '';
+      var ok = function(){ showToast('Enquiry copied. Enquiries open at launch.'); };
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(body).then(ok, ok); }
+        else ok();
+      }catch(err){ ok(); }
+    });
     cartItemsEl.addEventListener('click', function(e){
       var incBtn = e.target.closest('.qty-inc');
       var decBtn = e.target.closest('.qty-dec');
@@ -302,7 +312,7 @@
   function renderCartDrawer(){
     if(!cartOverlay) return;
     if(!cartItems.length){
-      cartItemsEl.innerHTML = '<div class="cart-empty"><p>Your cart is empty.</p><a class="btn btn-outline" href="terracotta.html">Explore crafts →</a></div>';
+      cartItemsEl.innerHTML = '<div class="cart-empty"><p>Your enquiry list is empty.</p><a class="btn btn-outline" href="terracotta.html">Explore crafts →</a></div>';
     } else {
       cartItemsEl.innerHTML = cartItems.map(function(it){
         var c = accent[it.craft] || 'var(--terracotta)';
@@ -311,36 +321,26 @@
           + '<div class="cart-item-thumb">'+thumb+'</div>'
           + '<div class="cart-item-body">'
           +   '<h5>'+it.n+'</h5>'
-          +   '<span class="cart-item-price" style="color:'+c+';">'+it.p+'</span>'
+          +   '<span class="cart-item-price" style="color:var(--ink-faint);font-weight:600;">Price on enquiry</span>'
           +   '<div class="cart-item-qty">'
           +     '<button class="qty-dec" type="button" data-key="'+it.key+'" aria-label="Decrease quantity of '+it.n+'">−</button>'
           +     '<span aria-live="polite">'+it.qty+'</span>'
           +     '<button class="qty-inc" type="button" data-key="'+it.key+'" aria-label="Increase quantity of '+it.n+'">+</button>'
           +   '</div>'
           + '</div>'
-          + '<button class="cart-item-remove" type="button" data-key="'+it.key+'" aria-label="Remove '+it.n+' from cart">Remove</button>'
+          + '<button class="cart-item-remove" type="button" data-key="'+it.key+'" aria-label="Remove '+it.n+' from enquiry list">Remove</button>'
           + '</div>';
       }).join('');
     }
-    var subtotal = cartSubtotal();
-    cartSubtotalEl.textContent = formatPrice(subtotal);
-    if(!cartItems.length){
-      cartShippingEl.innerHTML = '';
-    } else if(subtotal >= FREE_SHIP_THRESHOLD){
-      cartShippingEl.innerHTML = '<div class="ship-msg ship-done">🎉 You\'ve unlocked free shipping</div>';
-    } else {
-      var remaining = FREE_SHIP_THRESHOLD - subtotal;
-      var pct = Math.min(100, Math.round((subtotal / FREE_SHIP_THRESHOLD) * 100));
-      cartShippingEl.innerHTML = '<div class="ship-msg">'+formatPrice(remaining)+' more for free shipping</div>'
-        + '<div class="ship-bar"><span style="width:'+pct+'%;"></span></div>';
-    }
+    cartShippingEl.innerHTML = '';
     var enquireLink = cartOverlay.querySelector('.cart-enquire');
     if(enquireLink){
       if(cartItems.length){
-        var lines = cartItems.map(function(it){ return '- ' + it.n + ' (x' + it.qty + ') \u2014 ' + it.p; });
+        var lines = cartItems.map(function(it){ return '- ' + it.n + ' (x' + it.qty + ')'; });
         var body = 'Hi Kalakari,\n\nI would like to ask about these pieces:\n\n' + lines.join('\n')
-          + '\n\nSubtotal: ' + formatPrice(subtotal) + '\n\nPlease let me know availability and next steps.';
-        enquireLink.href = 'mailto:' + ENQUIRY_EMAIL + '?subject=' + encodeURIComponent('Enquiry about my Kalakari selections')
+          + '\n\nPlease let me know when these are available from a named maker, and at what price.';
+        enquireLink.setAttribute('data-body', body);
+        enquireLink.href = !ENQUIRY_EMAIL ? '#' : 'mailto:' + ENQUIRY_EMAIL + '?subject=' + encodeURIComponent('Enquiry about my Kalakari selections')
           + '&body=' + encodeURIComponent(body);
         enquireLink.setAttribute('aria-disabled', 'false');
       } else {
@@ -400,7 +400,7 @@
     var c = accent[lightboxCraft] || 'var(--terracotta)';
     lightboxImg.src = item.img;
     lightboxImg.alt = item.n;
-    lightboxCaption.innerHTML = item.n + '<span class="lb-price" style="color:'+c+';">'+item.p+'</span>';
+    lightboxCaption.textContent = item.n + ' · example piece';
   }
   function stepLightbox(delta){
     var list = products[lightboxCraft];

@@ -216,7 +216,7 @@
   .craft-hero .origin{ font-size:0.92rem; color:var(--ink-faint); margin:0 0 18px; }
   .craft-hero p.desc{ color:var(--ink-dim); max-width:52ch; margin:0 0 20px; }
   .craft-hero .stats{ display:flex; gap:30px; margin-top:22px; }
-  .craft-hero .stats div .n{ font-family:var(--serif); font-size:1.4rem; }
+  .craft-hero .stats div .n{ font-family:var(--serif); font-size:1.4rem; display:block; line-height:1.2; }
   .craft-hero .stats div .l{ font-size:0.76rem; color:var(--ink-faint); }
   .craft-visual{ border-radius:16px; padding:30px; aspect-ratio:4/3.1; display:flex; align-items:center; justify-content:center; }
 
@@ -466,3 +466,7 @@
     .risk-grid{ grid-template-columns:1fr; }
     footer.site .grid{ grid-template-columns:1fr; }
   }
+
+  /* ---------------- End-of-arc link to example pieces ---------------- */
+  .arc-next{ margin-top:28px; }
+  .pcard .price.on-enquiry{ font-weight:600; font-size:0.86rem; color:var(--ink-faint); }
